@@ -18,9 +18,11 @@ To run this demo locally, you need to:
     FindBin
     HTML::Entities
     HTTP::Tiny
+    IO::Socket::SSL
     JSON
     List::MoreUtils
     List::Util
+    Net::SSLeay
     Plack
     Plack::Middleware::Deflater
     Template
