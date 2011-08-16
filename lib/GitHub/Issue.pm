@@ -3,7 +3,7 @@ package GitHub::Issue;
 use strict;
 use warnings FATAL => 'all', NONFATAL => 'redefine';
 
-use v5.12;
+use v5.10;
 
 use GitHub::Iterator();
 use base 'GitHub::Base';

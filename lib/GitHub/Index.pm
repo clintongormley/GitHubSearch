@@ -2,7 +2,7 @@ package GitHub::Index;
 
 use strict;
 use warnings;
-use v5.12;
+use v5.10;
 
 use ElasticSearch();
 our $ES = ElasticSearch->new(
