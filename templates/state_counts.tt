@@ -1,0 +1,11 @@
+<div id = "state_count">
+    <label for = "state_all" [% state_counts.selected == 'all' && 'class="selected"' %]>
+        All ([% state_counts.all || 0 %])
+    </label>
+    <label for = "state_open" [% state_counts.selected == 'open' && 'class="selected"' %]>
+        Open ([% state_counts.open || 0 %])
+    </label>
+    <label for = "state_closed" [% state_counts.selected == 'closed' && 'class="selected"' %]>
+        Closed ([% state_counts.closed || 0 %])
+    </label>
+</div>

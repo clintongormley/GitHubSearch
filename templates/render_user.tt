@@ -1,0 +1,36 @@
+[%# '<pre>';USE Dumper; Dumper.dump(user); '</pre>' %]
+<div class = "user">
+    <span class = "login">[% user.login %]</span>
+    <div class = "popup">
+        <img src    = "[% user.avatar_url %]"
+             alt    = "[% user.login %]"
+             width  = "48"
+             height = "48" />
+        <h2>
+            [% user.login %]
+            [% IF user.name %]
+                <br /> [% user.name %]
+            [% END %]
+        </h2>
+        <p>
+[%
+        IF user.email;
+%]
+            <label>Email:</label>
+            <a href = "mailto:[% user.email %]"> [% user.email %] </a>
+[%
+        END;
+%]
+            <label>Github:</label>
+            <a href = "[% user.html_url %]"> [% user.html_url %] </a>
+[%
+        IF user.blog;
+%]
+            <label>Blog:</label>
+            <a href = "[% user.blog %]"> [% user.blog %] </a>
+[%
+        END
+%]
+       </p>
+    </div>
+</div>

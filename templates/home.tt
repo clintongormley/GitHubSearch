@@ -1,0 +1,23 @@
+[%
+    WRAPPER page_wrapper.tt;
+        IF repos;
+            INCLUDE list_repos.tt;
+        ELSE;
+%]
+        <h1>Issues for: [% repo.id %]</h1>
+        <p>
+            <a href="/">Other repositories</a>
+        </p>
+[%
+            INCLUDE issues_form.tt;
+            INCLUDE labels_list.tt;
+            INCLUDE state_counts.tt;
+%]
+            <div id = "issues_list">
+                <div id="timeline"></div>
+                [% INCLUDE issues_list.tt %]
+            </div>
+[%
+        END;
+    END;
+%]

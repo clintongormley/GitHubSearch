@@ -1,0 +1,42 @@
+<div id = "labels">
+    <h3>Labels</h3>
+[%
+    IF labels.size;
+        PROCESS render_labels;
+    ELSE;
+%]
+        <p>There are no labels for this repository.</p>
+[%
+    END;
+%]
+</div>
+
+[% BLOCK render_labels %]
+    <ul>
+[%
+        FOREACH label = labels;
+%]
+            <li class = "hex_[% label.color %]">
+                <span class = "label_color"> &nbsp; </span>
+                <span class = "label_count">
+                    [% label_counts.${label.id} || 0%]
+                </span>
+                <span class = "label_name">
+                    [% label.name | html %]
+                </span>
+            </li>
+[%
+        END
+%]
+    </ul>
+
+    <script type="text/javascript">
+    $(function() {
+        $('#labels li').click(function() {
+            $(this).toggleClass('selected');
+            $('#issues_search').trigger('submit');
+        });
+    });
+
+    </script>
+[% END %]

@@ -1,0 +1,47 @@
+<form id = "issues_search" action = "/[% repo.id %]/issues" method = "get" >
+<fieldset>
+    <legend> Issue search: </legend>
+
+    <div id="field_user" class="field">
+        <label for = "user"> User </label>
+        <input id  = "user"    name = "user"    type = "text" />
+        <input id  = "user_id" name = "user_id" type = "hidden" />
+        as
+        <select name = "user_type">
+            <option value = ""         > Any        </option>
+            <option value = "creator"  > Creator    </option>
+            <option value = "assignee" > Assignee   </option>
+            <option value = "comment"  > Commenter  </option>
+        </select>
+    </div>
+    <div id="field_keywords" class="field">
+        <label for = "keywords"> Keywords </label>
+        <input id  = "keywords" name = "keywords" type = "text" />
+    </div>
+
+    <input id      = "state_all"
+           name    = "state"
+           value   = ""
+           type    = "radio"
+           checked = "checked" />
+    <input id      = "state_open"
+           name    = "state"
+           value   = "open"
+           type    = "radio" />
+    <input id      = "state_closed"
+           name    = "state"
+           value   = "closed"
+           type    = "radio" />
+
+    <input id      = "min_date"
+           name    = "min_date"
+           type    = "hidden"
+           value   = "" />
+    <input id      = "max_date"
+           name    = "max_date"
+           type    = "hidden"
+           value   = "" />
+
+</fieldset>
+</form>
+

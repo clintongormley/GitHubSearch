@@ -1,0 +1,30 @@
+<ul class = "issues">
+[%
+    IF total;
+        FOREACH issue = issues
+%]
+            <li> [% INCLUDE render_issue.tt %] </li>
+[%
+        END;
+    ELSE;
+%]
+        <li>
+            <h3 class = "no_results">
+                No issues found matching your search criteria.
+            </h3>
+        </li>
+[%
+    END;
+%]
+</ul>
+
+<script type="text/javascript">
+    var timeline_data = [% json(timeline) %];
+    var state_counts  = {
+        all:        'All ([%    state_counts.all    || 0 %])',
+        open:       'Open ([%   state_counts.open   || 0 %])',
+        closed:     'Closed ([% state_counts.closed || 0 %])',
+        selected:   '[% state_counts.selected %]'
+    };
+
+</script>

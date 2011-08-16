@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv = "Content-Type" content = "text/html; charset=utf-8" />
+        <title>[% page_title %]</title>
+        <link rel = "stylesheet" href = "/custom-theme/jquery-ui-1.8.14.custom.css" type = "text/css" />
+        <link rel = "stylesheet" href = "/styles.css" type = "text/css" />
+        <script type="text/javascript" src="/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="/jquery-ui-1.8.14.custom.min.js"></script>
+        <script type="text/javascript" src="/highcharts/js/highcharts.js"></script>
+        <script type="text/javascript" src="/script.js"></script>
+        <script type="text/javascript">
+            var repo = '[% repo.id %]';
+        </script>
+        [% PROCESS label_styles %]
+       </head>
+    <body>
+        [% content %]
+    </body>
+</html>
+
+[% BLOCK label_styles %]
+[%
+    RETURN UNLESS labels;
+%]
+    <style type="text/css">
+[%
+        seen_colors = {};
+        FOR label = labels;
+            color = label.color;
+            NEXT IF seen_colors.$color;
+            seen_colors.$color = 1;
+%]
+    .labels li.hex_[% color %],
+    #labels li.hex_[% color %] .label_color,
+    #labels li.selected.hex_[% color %] {
+        [% gradient(color); %]
+    }
+    .labels li.hex_[% color %],
+    #labels li.selected.hex_[% color %] {
+        color: #[% contrast_text(color,'000000','FFFFFF') %]
+    }
+
+[%
+        END;
+%]
+    </style>
+[% END %]
+

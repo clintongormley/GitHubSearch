@@ -1,0 +1,26 @@
+[%  RETURN UNLESS issue.comments.size %]
+
+<ul class = "comments">
+[%
+    FOREACH comment = issue.comments;
+        user = comment.user;
+%]
+        <li>
+            <div class = "commenter">
+                <img src    = "[% user.avatar_url %]"
+                     alt    = "[% user.login %]"
+                     width  = "30"
+                     height = "30" />
+                    [% PROCESS render_user.tt %]
+                    commented
+                    [% fuzzy(issue.created_at) %]
+            </div>
+            <div class = "body">
+                [% comment.body %]
+            </div>
+
+        </li>
+[%
+    END
+%]
+</ul>

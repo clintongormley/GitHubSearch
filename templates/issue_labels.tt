@@ -1,0 +1,14 @@
+[% RETURN UNLESS issue.labels.size %]
+<ul class = "labels">
+[%
+    FOREACH label = issue.labels;
+%]
+        <li class="hex_[% label.color %]">
+            [% label.name %]
+        </li>
+[%
+    END
+%]
+</ul>
+
+

@@ -1,0 +1,18 @@
+<h1>
+    Please select a repository:
+</h1>
+
+<ul id = "repos">
+[%
+    FOREACH repo = repos;
+%]
+        <li>
+            <a href="/[% repo.id %]/" class = "repo_link">
+                [% repo.name %]
+            </a>
+            by [% PROCESS render_user.tt user = repo.owner %]
+        </li>
+[%
+    END
+%]
+</ul>

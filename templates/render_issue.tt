@@ -1,0 +1,52 @@
+[%# USE Dumper; '<pre>'; Dumper.dump(highlights) ;'</pre>' %]
+[% highlight = highlights.${issue.id} %]
+<div class = "issue [% issue.state %]">
+    <div class = "left_col">
+        <div class = "state">
+            [% issue.state %]
+        </div>
+        <div class="number">
+            #[% issue.number %]
+        </div>
+    </div>
+
+    [% PROCESS issue_labels.tt %]
+
+    <h3 class = "title">
+        <a class = "issue_link"
+           href  = "/[% repo.id %]/issue/[% issue.number %]"
+           title = "View issue [% issue.number %]">
+[%
+                highlight.title
+             || highlight.title_ngrams
+             || issue.title
+%]
+        </a>
+
+    </h3>
+
+    [% IF (total_comments = issue.comments.size) %]
+        <p class = "num_comments">
+            [% total_comments %]
+            [% total_comments > 1 ? 'comments' : 'comment' %]
+        </p>
+    [% END %]
+    <div class = "publish_details">
+        by [% PROCESS render_user.tt user = issue.user %]
+        - [% fuzzy(issue.created_at) %]
+        [% IF issue.closed_at %]
+            - closed [% fuzzy(issue.closed_at) %]
+        [% ELSIF issue.updated_at != issue.created_at %]
+            - last updated [% fuzzy(issue.updated_at) %]
+        [% END %]
+    </div>
+    <div class = "snippet">
+        [% highlight.body || trim_html(issue.body,250) %]
+    </div>
+    <div class = "full">
+        <div class = "body">
+            [% issue.body %]
+        </div>
+        [% PROCESS render_comments.tt %]
+    </div>
+</div>
