@@ -6,6 +6,7 @@ use warnings;
 use Text::Markdown();
 use Digest::MD5 qw(md5_hex);
 use HTML::Entities qw(encode_entities);
+use Encode qw(encode_utf8);
 
 require Exporter;
 our @ISA       = qw(Exporter);
@@ -22,7 +23,7 @@ sub markdown {
     # Extract pre blocks
     my $extract = sub {
         my $content = shift // '';
-        my $md5 = md5_hex($content);
+        my $md5 = md5_hex(encode_utf8($content));
         $extractions{$md5} = $content;
         return "{gfm-extraction-$md5}";
     };
