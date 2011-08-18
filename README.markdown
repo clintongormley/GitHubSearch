@@ -12,23 +12,23 @@ To run this demo locally, you need to:
 
 2) Install these Perl modules:
 
-    Digest::MD5
-    ElasticSearch
-    Encode
-    FindBin
-    HTML::Entities
-    HTTP::Tiny
-    IO::Socket::SSL
-    JSON
-    List::MoreUtils
-    List::Util
-    Net::SSLeay
-    Plack
-    Plack::Middleware::Deflater
-    Template
-    Text::Markdown
-    Time::Local
-    URI
+    sudo cpanm Digest::MD5
+    sudo cpanm ElasticSearch
+    sudo cpanm Encode
+    sudo cpanm FindBin
+    sudo cpanm HTML::Entities
+    sudo cpanm HTTP::Tiny
+    sudo cpanm IO::Socket::SSL
+    sudo cpanm JSON
+    sudo cpanm List::MoreUtils
+    sudo cpanm List::Util
+    sudo cpanm Net::SSLeay
+    sudo cpanm Plack
+    sudo cpanm Plack::Middleware::Deflater
+    sudo cpanm Template
+    sudo cpanm Text::Markdown
+    sudo cpanm Time::Local
+    sudo cpanm URI
 
 3) Clone this repository:
 
